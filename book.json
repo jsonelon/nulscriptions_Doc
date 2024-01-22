@@ -1,0 +1,28 @@
+{
+  "title": "nulscriptions官网",
+  "author": "nuls",
+  "description": "记录Gitbook的配置和一些插件的使用",
+  "language": "zh-hans",
+  "links": {
+    "sidebar": {
+      "nulscriptions官网": "https://www.nulscriptions.io"
+    }
+  },
+  "styles": {
+    "website": "styles/website.css",
+    "ebook": "styles/ebook.css",
+    "pdf": "styles/pdf.css",
+    "mobi": "styles/mobi.css",
+    "epub": "styles/epub.css"
+  },
+  "plugins": [
+    "-search"
+  ],
+  "pluginsConfig": {
+    "fontsettings": {
+      "theme": "sepia",
+      "family": "serif",
+      "size": 1
+    }
+  }
+}
