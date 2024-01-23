@@ -1,8 +1,11 @@
 # Summary
-* [Introduction](README.md)
-* [Part I](part1/README.md)
-    * [Writing is nice](part1/writing.md)
-    * [GitBook is nice](part1/gitbook.md)
-* [Part II](part2/README.md)
-    * [We love feedback](part2/feedback_please.md)
-    * [Better tools for authors](part2/better_tools.md)
+
+* [公告](公告.md)
+* [平台简介](README.md)
+* [生态应用](Ecological.md)
+* 视频教程
+  * [创建钱包地址教程](创建钱包地址教程.md)
+  * [绑定推荐人教程](绑定推荐人教程.md)
+  * [跨链操作教程](跨链操作教程.md)
+  * [铭文铸造教程](铭文铸造教程.md)
+  * [批量铭文教程](批量铭文教程.md)

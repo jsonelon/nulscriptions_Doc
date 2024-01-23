@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 500px;
+      height: 500px;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .fullscreen img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+  <swiper-container id="swiperWrapper" class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true"
+    centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0"
+    coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+    <!-- <swiper-slide onclick="openFullscreen('./images/Nulscriptions1.png')">
+      <img src="./images/Nulscriptions1.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions2.png')">
+      <img src="./images/Nulscriptions2.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions3.png')">
+      <img src="./images/Nulscriptions3.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions4.png')">
+      <img src="./images/Nulscriptions4.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions5.png')">
+      <img src="./images/Nulscriptions5.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions6.png')">
+      <img src="./images/Nulscriptions6.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions7.png')">
+      <img src="./images/Nulscriptions7.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions8.png')">
+      <img src="./images/Nulscriptions8.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions9.png')">
+      <img src="./images/Nulscriptions9.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions10.png')">
+      <img src="./images/Nulscriptions10.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions11.png')">
+      <img src="./images/Nulscriptions11.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions12.png')">
+      <img src="./images/Nulscriptions12.png" />
+    </swiper-slide>
+    <swiper-slide onclick="openFullscreen('./images/Nulscriptions13.png')">
+      <img src="./images/Nulscriptions13.png" />
+    </swiper-slide> -->
+  </swiper-container>
+
+  <div class="fullscreen" onclick="closeFullscreen()">
+    <img id="fullscreenImage" src="" alt="Fullscreen Image" />
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <script>
+    // Get the swiper wrapper element
+    const swiperWrapper = document.getElementById('swiperWrapper');
+
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+
+    var name = getParameterByName('name'); // 返回 'John'
+    var num = getParameterByName('num');   // 返回 '25'
+
+
+    num = Number(num);
+
+    for (let i = 0; i < num; i++) {
+      let path = './images/' + name + (i + 1) + '.png';
+      const swiperSlideHTML = `
+            <swiper-slide  onclick="openFullscreen('${path}')">
+                <img src="${path}" />
+            </swiper-slide>
+        `;
+      swiperWrapper.insertAdjacentHTML('beforeend', swiperSlideHTML);
+    }
+
+
+
+    function openFullscreen(imageUrl) {
+      const fullscreenContainer = document.querySelector('.fullscreen');
+      const fullscreenImage = document.getElementById('fullscreenImage');
+
+      fullscreenImage.src = imageUrl;
+      fullscreenContainer.style.display = 'flex';
+    }
+
+    function closeFullscreen() {
+      const fullscreenContainer = document.querySelector('.fullscreen');
+      fullscreenContainer.style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>

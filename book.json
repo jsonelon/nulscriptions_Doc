@@ -1,6 +1,6 @@
 {
-  "title": "nulscriptions官网",
-  "author": "nuls",
+  "title": "Docs",
+  "author": "jsonelon",
   "description": "记录Gitbook的配置和一些插件的使用",
   "language": "zh-hans",
   "links": {
@@ -9,20 +9,23 @@
     }
   },
   "styles": {
-    "website": "styles/website.css",
-    "ebook": "styles/ebook.css",
-    "pdf": "styles/pdf.css",
-    "mobi": "styles/mobi.css",
-    "epub": "styles/epub.css"
+    "website": "styles/website.css"
   },
   "plugins": [
-    "-search"
+    "-search",
+    "change_girls"
   ],
   "pluginsConfig": {
     "fontsettings": {
       "theme": "sepia",
       "family": "serif",
       "size": 1
+    },
+    "change_girls": {
+      "time": 10,
+      "urls": [
+        "https://img-blog.csdnimg.cn/a26778eaec6349a18a9d387579396a82.png"
+      ]
     }
   }
 }

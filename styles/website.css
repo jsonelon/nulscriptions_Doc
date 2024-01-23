@@ -1,4 +1,12 @@
 h1,
 h2 {
   border-bottom: 1px solid #EFEAEA;
+
 }
+
+/* 
+.book-body {
+  background: url('../images/海报3.jpg') no-repeat center center fixed;
+  background-size: 100% 500px;
+  background-color: rgba(255, 255, 255, 0.4);
+} */

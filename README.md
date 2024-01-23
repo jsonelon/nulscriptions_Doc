@@ -1,7 +1,5 @@
-# Introduction
+### 平台简介
 
-# 你好啊
 
-### 是你吗
+![img](./images/long.jpg)
 
-好了,已经可以看到我的东西了
