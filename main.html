@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .scroll-container {
+      height: 400px;
+      width: 100vw;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scroll-content {
+      height: 400px;
+      /* Adjust the height based on your content */
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate3d(0, 0, 0);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .section {
+      height: 400px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .section.show {
+      opacity: 1;
+    }
+
+    .section:nth-child(odd) {
+      background-color: #333;
+    }
+
+    .section:nth-child(even) {
+      background-color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <div class="section show">
+        <img style="width: 100%;height: 100%;" src="./images/海报3.jpg" alt="">
+      </div>
+      <div class="section">
+        <img style="width: 100%;height: 100%;" src="./images/海报2.jpg" alt="">
+      </div>
+      <div class="section">
+        <img style="width: 100%;height: 100%;" src="./images/海报1.jpg" alt="">
+      </div>
+      <!-- Add more sections as needed -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let currentSection = 0;
+      const numSections = document.querySelectorAll('.section').length;
+      const scrollContent = document.querySelector('.scroll-content');
+      const sections = document.querySelectorAll('.section');
+      let isScrolling = false;
+
+      window.addEventListener('wheel', handleScroll);
+      window.addEventListener('touchstart', handleTouchStart);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('mousedown', handleMouseDown);
+      window.addEventListener('mouseup', handleMouseUp);
+
+      function handleScroll(e) {
+        if (!isScrolling) {
+          isScrolling = true;
+
+          if (e.deltaY > 0 && currentSection < numSections - 1) {
+            currentSection++;
+          } else if (e.deltaY < 0 && currentSection > 0) {
+            currentSection--;
+          }
+
+          changeSection();
+          setTimeout(() => {
+            isScrolling = false;
+          }, 1000); // Adjust the delay based on your preference
+        }
+      }
+
+      let touchStartY = 0;
+
+      function handleTouchStart(e) {
+        touchStartY = e.touches[0].clientY;
+      }
+
+      function handleTouchMove(e) {
+        if (!isScrolling) {
+          isScrolling = true;
+
+          const touchEndY = e.touches[0].clientY;
+
+          if (touchStartY < touchEndY && currentSection > 0) {
+            currentSection--;
+          } else if (touchStartY > touchEndY && currentSection < numSections - 1) {
+            currentSection++;
+          }
+
+          changeSection();
+          setTimeout(() => {
+            isScrolling = false;
+          }, 1000); // Adjust the delay based on your preference
+        }
+      }
+
+      function handleMouseDown(e) {
+        touchStartY = e.clientY;
+        window.addEventListener('mousemove', handleMouseMove);
+      }
+
+      function handleMouseMove(e) {
+        if (!isScrolling) {
+          isScrolling = true;
+
+          const touchEndY = e.clientY;
+
+          if (touchStartY < touchEndY && currentSection > 0) {
+            currentSection--;
+          } else if (touchStartY > touchEndY && currentSection < numSections - 1) {
+            currentSection++;
+          }
+
+          changeSection();
+          setTimeout(() => {
+            isScrolling = false;
+          }, 1000); // Adjust the delay based on your preference
+        }
+      }
+
+      function handleMouseUp() {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
+
+      function changeSection() {
+        sections.forEach((section, index) => {
+          if (index === currentSection) {
+            section.classList.add('show');
+          } else {
+            section.classList.remove('show');
+          }
+        });
+
+        const translateY = -currentSection * 100;
+        scrollContent.style.transform = `translate3d(0, ${translateY}vh, 0)`;
+      }
+    });
+  </script>
+</body>
+
+</html>
