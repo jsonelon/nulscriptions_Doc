@@ -24,6 +24,6 @@
 
 [**nuls跨链兑换**](https://swap.nulscriptions.io)
 
-[**批量铸造脚本**](https://www.nulscriptions.io)
+[**批量铸造脚本**](https://jsonelon.github.io/inscriptions-mints)
 
 <iframe width="100%" height="400px" src="main.html" frameborder="0" allowfullscreen></iframe>
