@@ -5,7 +5,7 @@
   "language": "zh-hans",
   "links": {
     "sidebar": {
-      "nulscriptions官网": "https://www.nulscriptions.io"
+      "Docs": "javascript:void(0);"
     }
   },
   "styles": {
@@ -20,12 +20,6 @@
       "theme": "sepia",
       "family": "serif",
       "size": 1
-    },
-    "change_girls": {
-      "time": 10,
-      "urls": [
-        "https://img-blog.csdnimg.cn/a26778eaec6349a18a9d387579396a82.png"
-      ]
     }
   }
 }

@@ -4,6 +4,15 @@ h2 {
 
 }
 
+
+/* .dropdown {
+  display: none !important;
+} */
+
+.gitbook-link {
+  display: none !important;
+}
+
 /* 
 .book-body {
   background: url('../images/海报3.jpg') no-repeat center center fixed;

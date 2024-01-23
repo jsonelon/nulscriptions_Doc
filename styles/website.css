@@ -4,9 +4,29 @@ h2 {
 
 }
 
+
+/* .dropdown {
+  display: none !important;
+} */
+
+.gitbook-link {
+  display: none !important;
+}
+
 /* 
-.book-body {
-  background: url('../images/海报3.jpg') no-repeat center center fixed;
-  background-size: 100% 500px;
-  background-color: rgba(255, 255, 255, 0.4);
+打包后修改
+_book/index.html
+更改ico
+ <link rel="icon" href="https://app.gitbook.com/public/emojis/1f308.png?v=6.0.0" id="__link-icon">
+  <link rel="apple-touch-icon" href="https://app.gitbook.com/public/emojis/1f308.png?v=6.0.0">
+
+  更改左上角
+.summary第一个li
+   <li style="display: flex;align-items: center;padding: 20px">
+            <div style="font-size: 2.5rem;background-color: #FDF2E0; width: 4rem;height: 4rem;
+            display: flex;align-items: center;justify-content: center;">
+              🌈
+            </div>
+            <a href="javascript:void(0);" target="_blank" style="font-weight: bold;font-size: 2rem;">Docs</a>
+          </li>
 } */
