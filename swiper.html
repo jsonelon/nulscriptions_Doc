@@ -62,7 +62,7 @@
 
     @media screen and (max-width: 768px) {
       swiper-slide img {
-        display: block;
+        /* display: block; */
         width: 100%;
         height: auto;
       }
@@ -70,7 +70,7 @@
 
     @media screen and (min-width: 768px) {
       swiper-slide img {
-        display: block;
+        /* display: block; */
         width: auto;
         height: 100%;
       }
@@ -92,6 +92,21 @@
 
   <script>
     const swiperEl = document.querySelector('swiper-container');
+
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+
+    var name = getParameterByName('name'); // 返回 'John'
+    var num = getParameterByName('num');   // 返回 '25'
+
 
     let arr = [
       "#302C49",
@@ -124,25 +139,11 @@
     // Get the swiper wrapper element
     const swiperWrapper = document.getElementById('swiperWrapper');
 
-    function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-
-    var name = getParameterByName('name'); // 返回 'John'
-    var num = getParameterByName('num');   // 返回 '25'
 
 
     num = Number(num);
-
     for (let i = 0; i < num; i++) {
-      let path = './images/' + name + (i + 1) + '.png';
+      let path = `./images/${name}${i + 1}.png`;
       const swiperSlideHTML = `
             <swiper-slide  onclick="openFullscreen('${path}')">
                 <img src="${path}" />
