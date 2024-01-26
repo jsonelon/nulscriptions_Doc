@@ -1,5 +1,5 @@
 <video controls="controls" width="100%" height="500px">
 
-  <source src="./video/跨链操作教程.mp4" type="video/mp4">
+  <source src="./video/Batch-inscription.mp4" type="video/mp4">
 
 </video>
